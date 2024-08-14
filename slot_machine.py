@@ -22,9 +22,6 @@ class Slot_Machine:
         result_1 = random.randint(1, 10)
         result_2 = random.randint(1, 10)
         result_3 = random.randint(1, 10)
-        print(result_1)
-        print(result_2)
-        print(result_3)
 
         return result_1, result_2, result_3
     
