@@ -1,5 +1,5 @@
 import os
-import sys
+import emoji
 import random
 
 class Slot_Machine:
@@ -20,9 +20,14 @@ class Slot_Machine:
 
 
     def spin(self):
-        result_1 = random.randint(1, 2)
-        result_2 = random.randint(1, 2)
-        result_3 = random.randint(1, 2)
+        emoji_dict = {
+            1: emoji.emojize(':butterfly:'),
+            2: emoji.emojize(':cherries:')
+        }
+        
+        result_1 = random.choice(emoji_dict)
+        result_2 = random.choice(emoji_dict)
+        result_3 = random.choice(emoji_dict)
 
         return result_1, result_2, result_3
     
