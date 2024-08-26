@@ -30,13 +30,16 @@ class Slot_Machine:
 def main():
     slots = Slot_Machine(100)
     while True:
-        r1, r2, r3 = slots.spin()
-        slots.make_board(r1, r2, r3)
         try:
-            choice = input("Type 1 to spin.")
+            choice = input("Type 1 to spin. ")
             slots.total -= 1
-            if choice == "1" and r1 == r2 and r1 == r3:
-                slots.total += 5
+
+            if choice == "1":
+                os.system('clear')
+                r1, r2, r3 = slots.spin()              
+                if r1 == r2 and r1 == r3:
+                    slots.total += 5
+                slots.make_board(r1, r2, r3)
 
         except ValueError:
             print("Please only enter 1.")
