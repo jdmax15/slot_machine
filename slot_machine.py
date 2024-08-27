@@ -18,7 +18,6 @@ class Slot_Machine:
         print(f"======================================")
 
 
-
     def spin(self):
         emoji_dict = {
             1: emoji.emojize(':butterfly:'),
@@ -31,14 +30,19 @@ class Slot_Machine:
 
         return result_1, result_2, result_3
     
+    def set_bet_and_spin(self, bet):
+        self.total -= bet
+
+
+
 def main():
     slots = Slot_Machine(100)
     while True:
         try:
-            choice = input("Type 1 to spin. ")
-            slots.total -= 1
+            choice = int(input("Type amount to bet (1-5). "))
+            slots.set_bet_and_spin(choice)
 
-            if choice == "1":
+            if choice == 1:
                 os.system('clear')
                 r1, r2, r3 = slots.spin()              
                 if r1 == r2 and r1 == r3:
