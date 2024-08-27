@@ -32,7 +32,11 @@ class Slot_Machine:
     
     def set_bet_and_spin(self, bet):
         self.total -= bet
-
+        os.system('clear')
+        r1, r2, r3 = self.spin()              
+        if r1 == r2 and r1 == r3:
+            self.total += bet * 5
+        self.make_board(r1, r2, r3)   
 
 
 def main():
@@ -40,17 +44,12 @@ def main():
     while True:
         try:
             choice = int(input("Type amount to bet (1-5). "))
+            if choice not in list(range(1, 5)):
+                raise ValueError()
             slots.set_bet_and_spin(choice)
 
-            if choice == 1:
-                os.system('clear')
-                r1, r2, r3 = slots.spin()              
-                if r1 == r2 and r1 == r3:
-                    slots.total += 5
-                slots.make_board(r1, r2, r3)
-
         except ValueError:
-            print("Please only enter 1.")
+            print("Please only enter 1-5.")
 
 
 if __name__ == "__main__":
