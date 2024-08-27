@@ -25,13 +25,12 @@ class Slot_Machine:
             2: emoji.emojize(':cherries:')
         }
         
-        result_1 = random.choice(emoji_dict)
-        result_2 = random.choice(emoji_dict)
-        result_3 = random.choice(emoji_dict)
+        result_1 = random.choice(list(emoji_dict.values()))
+        result_2 = random.choice(list(emoji_dict.values()))
+        result_3 = random.choice(list(emoji_dict.values()))
 
         return result_1, result_2, result_3
     
-# NEED TO FIX SPIN/BETTING LOGIC. IT CURRENTLY ONLY CHANGES MONEY IF YOU PRESS 1 AND KEEPS RESPINNING.
 def main():
     slots = Slot_Machine(100)
     while True:
