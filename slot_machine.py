@@ -38,9 +38,15 @@ class Slot_Machine:
             self.total += bet * 5
         self.make_board(r1, r2, r3)   
 
-
+# GettingUnboundLocalError with start_money
 def main():
-    slots = Slot_Machine(100)
+    try:
+        start_money = input(int("Enter your starting money: "))
+    except ValueError:
+        print("Please only enter a number.")
+
+    slots = Slot_Machine(start_money)
+    
     while True:
         try:
             choice = int(input("Type amount to bet (1-5). "))
