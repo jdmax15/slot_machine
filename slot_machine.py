@@ -2,6 +2,8 @@ import os
 import emoji
 import random
 
+#comment for commit
+
 class Slot_Machine:
     def __init__(self, total):
         self.total = total
