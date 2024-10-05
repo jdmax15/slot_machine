@@ -1,6 +1,7 @@
 import os
 import emoji
 import random
+import sys
 
 #comment for commit
 
@@ -41,16 +42,15 @@ class Slot_Machine:
         self.make_board(r1, r2, r3)   
 
 def main():
-    start_money = 100
-    
     try:
-        start_money = input(int("Enter your starting money: "))
+        start_money = int(input("Enter your starting money: "))
+        slots = Slot_Machine(start_money)
     except ValueError:
         print("Please only enter a number.")
 
-    slots = Slot_Machine(start_money)
-    
     while True:
+        if slots.total <= 0:
+            sys.exit("You ran out of money.")
         try:
             choice = int(input("Type amount to bet (1-5). "))
             if choice not in list(range(1, 6)):
